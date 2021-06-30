@@ -129,16 +129,16 @@ dict1 = {
 # Other variable storage
 locked_small_strands = []
 A = 'GCACAAGGTCGG'
-B = 'CAGCACCGACCTTGTGCTTTGGGAGTGCTGGTCCAAGGGCGTTAATGGACA'
+aptamer = 'CAGCACCGACCTTGTGCTTTGGGAGTGCTGGTCCAAGGGCGTTAATGGACA'
 c1 = 1e-6
 c2 = 1e-6
 intermediate = []
 
-locked_small_strands = getQuencherStrands(12,B,[3,4,28,29,33,43,42])
+locked_small_strands = getQuencherStrands(12,aptamer,[3,4,28,29,33,43,42])
 
 # Runs comparison between small and long strand
 for x in locked_small_strands:
-	intermediate.append([x, round((compare(B, x, c1, c2)/c1)*100, 3),locked_small_strands[x]])
+	intermediate.append([x, round((compare(aptamer, x, c1, c2)/c1)*100, 3),locked_small_strands[x]])
 
 
 final = baseFilter(intermediate,['A'],'begin/end')
